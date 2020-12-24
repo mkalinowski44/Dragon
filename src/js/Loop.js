@@ -1,5 +1,7 @@
 class Loop {
    constructor(config) {
+      if (!config) config = {}
+
       this.lastRenderTime = 0
       this.secondsSinceLastRender = 0
       this.run = false
@@ -8,7 +10,7 @@ class Loop {
       this.update = config.update ? config.update : () => {}
       this.render = config.render ? config.render : () => {}
 
-      if (config.start) this.start()
+      if (config && config.start) this.start()
    }
 
    main(currentTime) {

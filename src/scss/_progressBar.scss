@@ -1,0 +1,184 @@
+$borderGradient: linear-gradient(
+   180deg,
+   #FFFFFF 0%,
+   #D8D8D8 3.65%,
+   #979797 48.41%,
+   #656565 49.98%,
+   #838383 91.09%,
+   #373737 100%
+);
+$backgroundGradient: linear-gradient(
+   180deg,
+   #000000 0%,
+   #131313 8.33%,
+   #272726 50%,
+   #3C3C3C 90.1%,
+   #272727 100%
+);
+
+$reflexGradient: linear-gradient(
+   180deg,
+   rgba(255, 255, 255, 0.65) 0%,
+   rgba(255, 255, 255, 0.5) 5.21%,
+   rgba(255, 255, 255, 0.46) 5.22%,
+   rgba(255, 255, 255, 0) 47.92%,
+   rgba(0, 0, 0, 0.23) 50.52%,
+   rgba(0, 0, 0, 0.25) 93.22%,
+   rgba(0, 0, 0, 0.31) 93.23%,
+   rgba(0, 0, 0, 0.56) 100%
+);
+
+$greenGradient: linear-gradient(
+   90deg,
+   #4AD509 0%,
+   #00FF29 28.13%,
+   #00FF75 76.7%,
+   #14FFAA 100%
+);
+
+$redGradient: linear-gradient(
+   90deg,
+   #E30000 0%,
+   #FF1000 28.13%,
+   #FF6B00 76.7%,
+   #FF8514 100%
+);
+
+$blueGradient: linear-gradient(
+   90deg,
+   #003EB7 0%,
+   #3D04DF 28.13%,
+   #8F00FF 76.7%,
+   #A614FF 100%
+);
+
+.barContainer {
+   width: 100%;
+   height: 50px;
+   display: flex;
+   margin-bottom: 40px;
+
+   .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: relative;
+      margin-right: 25px;
+
+      &::before, &::after {
+         content: '';
+         position: absolute;
+         top: 0; right: 0; bottom: 0; left: 0;
+      }
+
+      &::before {
+         z-index: 1;
+         margin: -3px -3px;
+         background: $borderGradient;
+         border-radius: inherit;
+      }
+
+      &::after {
+         background: $backgroundGradient;
+         z-index: 2;
+         border-radius: inherit;
+      }
+
+      img {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 40px;
+         height: 40px;
+         z-index: 3;
+      }
+   }
+
+   .progressBar {
+      width: 275px;
+      height: 50px;
+      flex-basis: 275px;
+      flex-shrink: 0;
+      flex-grow: 0;
+
+      .backgroundBar {
+         height: 50px;
+         position: relative;
+         z-index: 0;
+         border-radius: 5px;
+         padding: 1px;
+
+         &::before, &::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+         }
+
+         &::before {
+            z-index: 1;
+            margin: -3px -3px;
+            background: $borderGradient;
+            border-radius: inherit;
+         }
+
+         &::after {
+            background: $backgroundGradient;
+            z-index: 2;
+            border-radius: inherit;
+         }
+      }
+
+      .visibleContainer {
+         width: 100%;
+         min-width: 0%;
+         max-width: 100%;
+         height: 48px;
+         border-radius: 4px;
+         overflow: hidden;
+         position: relative;
+         z-index: 3;
+         transition: width .3s ease-in-out;
+      }
+
+      .fillColor, .fillReflex {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 273px;
+         height: 48px;
+      }
+
+      .fillColor {
+         z-index: 1;
+      }
+
+      .fillReflex {
+         z-index: 2;
+         background: $reflexGradient;
+      }
+
+      .placeholderBar {
+         z-index: 4;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         color: white;
+         font-size: 24px;
+         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+   }
+}
+
+#healthBar .fillColor {
+   background: $greenGradient;
+}
+
+#fireBar .fillColor {
+   background: $redGradient;
+}
+
+#targetBar .fillColor {
+   background: $blueGradient;
+}

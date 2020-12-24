@@ -1,9 +1,92 @@
+@import './helpers';
+@import './fonts';
+@import './progressBar';
+@import './menuUI';
+@import './button';
+@import './boardViews';
+
 *,
 *:before,
 *:after {
    box-sizing: border-box;
 }
 
+
+
 body {
    margin: 0;
+   font-family: 'Mortis';
+}
+
+.gameWrapper {
+   width: 100vw;
+   height: 100vh;
+   background-color: black;
+   @include img('dragonSkin.png');
+   background-repeat: repeat;
+   background-size: 512px;
+   overflow: hidden;
+   position: relative;
+}
+
+#game {
+   display: flex;
+}
+
+#gameSidebar {
+   width: 400px;
+   height: 100vh;
+   @include img('bricks.png');
+   box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.6);
+   background-size: 400px 300px;
+   padding: 25px;
+   flex-basis: 400px;
+   flex-shrink: 0;
+   flex-grow: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   opacity: 0;
+   pointer-events: none;
+
+   #instructionsImage {
+      text-align: center;
+   }
+
+   &.show {
+      opacity: 1;
+      pointer-events: all;
+   }
+}
+
+.boardWrapper {
+   width: 100%;
+   position: relative;
+}
+
+#board {
+   height: 100vh;
+   width: 100%;
+   padding: 25px;
+   z-index: 0;
+}
+
+#menu {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   opacity: 0;
+   pointer-events: none;
+   z-index: 1;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+
+   &.show {
+      opacity: 1;
+      pointer-events: all;
+   }
 }

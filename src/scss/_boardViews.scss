@@ -1,0 +1,26 @@
+.boardView {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   @include img('bricks.png');
+   width: 300px;
+   padding: 0 30px 30px 30px;
+   background-size: 100% auto;
+   border: 2px outset #303435;
+   border-radius: 5px;
+   box-shadow: 0 10px 30px -5px rgba(black, 0.5);
+   opacity: 0;
+   pointer-events: none;
+   color: white;
+
+   .description {
+      text-align: center;
+      font-size: 18px;
+   }
+
+   &.show {
+      opacity: 1;
+      pointer-events: all;
+   }
+}

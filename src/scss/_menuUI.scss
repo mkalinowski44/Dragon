@@ -1,0 +1,70 @@
+.menuWrapper {
+   max-width: 100%;
+   width: 1000px;
+   min-height: 300px;
+   color: white;
+}
+
+.menuMainTitle {
+   font-size: 36px;
+   text-align: center;
+}
+
+.menuTitle {
+   font-size: 24px;
+   font-weight: 400;
+   margin: 10px 0;
+}
+
+.menuRow {
+   display: grid;
+   grid-gap: 30px;
+   grid-template-columns: repeat(3, 1fr);
+}
+
+.menuColumn {
+   @include img('bricks.png');
+   min-height: 400px;
+   padding: 0 30px 30px 30px;
+   background-size: contain;
+   border: 2px outset #303435;
+   border-radius: 5px;
+   box-shadow: 0 5px 20px -2px rgba(black, 1);
+}
+
+.settingsPanel {
+   margin: 30px 0;
+}
+
+.settingsTitle {
+   font-size: 20px;
+   font-weight: 400;
+}
+
+.settingsRow {
+   display: grid;
+   grid-gap: 10px;
+   grid-template-columns: repeat(auto-fit, minmax(30px, auto));
+
+   .button {
+      margin: 0;
+   }
+}
+
+#newGame {
+   grid-column: 2 / 3;
+}
+
+.menuInfo {
+   font-family: Consolas, Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 12px;
+   text-align: center;
+   background-color: rgba(black, 0.5);
+   display: inline-flex;
+   position: relative;
+   left: 50%;
+   transform: translateX(-50%);
+   margin-top: 30px;
+   padding: 5px 10px;
+   border-radius: 5px;
+}

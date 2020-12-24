@@ -1,9 +1,8 @@
-import Loop from './js/Loop'
+import GameManager from './js/GameManager'
 import './scss/index.scss'
 
-const mainLoop = new Loop({
-   speed: 10,
-   start: true,
-   update: (loop) => {},
-   render: (loop) => {},
+window.game = new GameManager({
+   element: document.getElementById('board')
 })
+
+game.init()
