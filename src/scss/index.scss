@@ -84,6 +84,7 @@ body {
    flex-direction: column;
    align-items: center;
    justify-content: center;
+   overflow-y: auto;
 
    &.show {
       opacity: 1;

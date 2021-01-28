@@ -68,3 +68,24 @@
    padding: 5px 10px;
    border-radius: 5px;
 }
+
+.challenge {
+   border-radius: 5px;
+   text-align: center;
+   font-size: 14px;
+   padding: 5px 10px;
+   background-color: rgba(black, 0.5);
+   margin-top: 20px;
+
+   b {
+      color: red;
+   }
+
+   a {
+      color: white;
+
+      &:hover {
+         color: red;
+      }
+   }
+}
